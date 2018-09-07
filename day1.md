@@ -59,16 +59,16 @@ Learning:
 - Apprentice Method: mentoring/tutoring. 30-50% faster. Experienced person also gains knowledge
 - Crash Test Method: exploratory testing. encoded in brain as experience. Need basic knowledge as starting point.
 - Dancer Method: 5-30% data retention from reading. needs to be reinforced with practise.
-- Place Switch Method: Switch places/roles in org. Encourages you to learn and extend knowledge.
+- Place Switch Method: Switch places/roles in organisation. Encourages you to learn and extend knowledge.
 - Parrot Method: To share knowledge, rehearse. Combine reading with emotions, imagine crowd - visualisation. 
-- Mastering Method: Taking notes. Writing reinforces knowledge. Writing > typing.
+- Mastering Method: Taking notes. Writing reinforces knowledge. Writing is most effective, doesn't work with typing.
 - Box King Method: Take a step at a time.
 - Tutor Method: explain to yourself
 
 People:
 
-- Meetings -  Meeting in person first matters
-- Feedback: naturally wired to seeing whats wrong. constructive feedback doesn't work and micromanagement bad. need to own your own concerns. share concerns and feels rather than critising/demanding changes. this lowers status threat.
+- Meetings - Meeting in person first matters
+- Feedback: naturally wired to seeing whats wrong. constructive feedback doesn't work and micromanagement bad. need to own your own concerns. share concerns and feelings rather than critising/demanding changes. this lowers status threat.
 
 Structure:
 
@@ -87,7 +87,6 @@ Mindset Matters. Coach, don't rescue. Offer information rather than assistance. 
 
 Provide explicit onboarding. Last new hire can onboard new hire, reiterate knowledge and improve process.
 
-Hiring Nucleus
 
 
 
@@ -97,10 +96,10 @@ survivor bias in monitoring - only focus on failure modes that we identified thr
 
 could we monitor and alert on the absence of success? something is wrong, but not what is wrong.
 
-repeat of talk at Monitorama PDX
+otherwise, this talk was repeat of his talk at Monitorama PDX and didn't answer the questions he posed
 
 
-## Monitoring what you don't own - Stephen Strowes, Ripe NCC
+## Monitoring what you don't own - Stephen Strowes, Ripe NCC
 
 Easy to monitor things you have control over
 
@@ -146,15 +145,15 @@ Investigation Process:
 
 - preinvestigation preparation
   - go team, ready for assignments: on call schedule.
-  - investigator in charge
+  - investigator in charge (IIC)
   - subject matter experts
 - notification and initial response
-  - regional reponse, notify national hq
+  - regional reponse, notify national headquarters
   - initial PR and stakedown
   - establish severity and assemble go team if necessary
 - on scene
   - establish command rooms.
-  - first: org meeting, bring up to speed, establish tasks, roles and lines of authority
+  - first: organisation meeting, bring up to speed, establish tasks, roles and lines of authority
   - IIC most senior person on scene
   - daily on site progress meetings at end of day, plan next day
   - briefing headquarters
@@ -184,8 +183,8 @@ post incident activities:
   - template
   - blameless
 - postmortem rollup
-   - action items are prioritized
-   - weekly reporting on status of action-items
+  - action items are prioritized
+  - weekly reporting on status of action-items
 
 The more you invest in the process the more you will get out of it
 
@@ -199,9 +198,9 @@ Learn from past mistakes, feel kinship in the face of system failure, share what
 
 Datadog: lots of data, all day long, every day under tight processing deadlines.
 
-Complex systems almost always are in stable but degraded mode. Each incident is recording noteworth deviation from what we expect. Most incidents deserve a post mortem - got good at writing them.
+Complex systems almost always are in stable but degraded mode. Each incident is recording noteworthy deviation from what we expect. Most incidents deserve a post mortem - got good at writing them.
 
-Looking back- two extremes: detailled narative on why and fixes, and also high level aggregates and trends
+Looking back- two extremes: detailed narative on why and fixes, and also high level aggregates and trends
 
 Looking at all in aggregate, formalise anti-patterns into a living document. Invaluable tool for new and old hands alike.
 
@@ -212,23 +211,10 @@ Talking about failure in public is even harder. Forget about the specifics and f
 Anthology of anti-patterns:
 
 - Configuration: config not immediately picked up, delayed incident. expose config identifier at runtime, assert what runs is what is intended.
-- Dependencies: timeouts - LB timeout of 10s but downstream 60s. expensive requests dominate runtime. downstream services should have timeouts shorter than upstream.
+- Dependencies: timeouts - loadbalancer timeout of 10s but downstream 60s. expensive requests dominate runtime. downstream services should have timeouts shorter than upstream.
 - Deployment: uptime means victory. past results are not an indication of future performance. need explicit sanity checks.
 - Development: time, dealing with DST changes. Difficuly to thoroughly test, default to UTC everywhere (except UI).
 - Observability: tail of distribution. aggregates and perventiles mask reality of user experience - slowest could be most important. Pay special attention to the tail, check worse requests individually.
-- Operations: Expensive roll back/fwd. Bad deploy - debate what to do is time consuming. Pick one strategy and invest heavily in it and make it really good.
-- Performance: arbitrary resource limits. hard to pick connection/fh etc. limits. Set reasonable soft limits and ideally no hard limits and let system hit actual resource limits OR reigorously model and validate limits.
+- Operations: Expensive roll back or forward. Bad deploy - debate what to do is time consuming. Pick one strategy and invest heavily in it and make it really good.
+- Performance: arbitrary resource limits. hard to pick limits for connections, file handles etc. Set reasonable soft limits and ideally no hard limits and let system hit actual resource limits OR reigorously model and validate limits.
 - Routing: retry too often. Simplistic retry approaches multiples load on backend systems. Use adaptive retries such as CoDel.
-
-
-
-
-
-
-
-
-
-
-
-
-
