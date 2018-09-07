@@ -6,7 +6,7 @@ First monitoring system: Ganglia + Icinga. Tried to move to SaaS, ended up suppo
 
 Company infrastructure was scaling horizontally, require scaling monitoring vertically.
 
-Project to review monitoring and replace existing systems: scale with infra growth, easy to deploy and operate, engineer friendly instrumentation, first class API support.
+Project to review monitoring and replace existing systems: scale with infrastructure growth, easy to deploy and operate, engineer friendly instrumentation, first class API support.
 
 Get started:
 
@@ -16,10 +16,10 @@ Get started:
 
 Infrastructure:
 
-- Pair of instances in each pop, both scraping same devices in the pop.
+- Pair of instances in each POP, both scraping same devices in the POP.
 - Frontend in GCP. Grafana, nginx router, federation and alert manager.
 
-Prom server:
+Prometheus server:
 
 - ghost tunnel, tls termination and auth
 - service discovery sidecar
@@ -35,8 +35,9 @@ Rough Edges:
 - Long term storage still an open question
 
 
-
 ## Rethinking UX for AI-driven Monitoring Tools - Stephen Boak, Datadog
+
+This was a really great talk and my notes could never do it justice.
 
 https://bit.ly/2MNDlZ9
 
@@ -62,15 +63,13 @@ What went well:
 - Inclusive approach, extensible data model
 - Roadshows, Show and Tell, Awareness sessions
 
-What would be change:
+What could be changed:
 
 - Spend more time gaining consensus early stage
 - Work out how to pay for it
 - Focus less on legacy technologies
 
-
 ## Self-hosted & open-source time series analysis for your infrastructure - Alexey Velikiy
-
 
 Analytic unit - shuld be isolated and customisable
 
@@ -79,6 +78,8 @@ Hastic - python app for processing ts data & plugin for grafana with ui for labe
 Label patterns in grafana, and then it will generate detections. Pattern is a "shape" - peaks, jumps, troughs etc.
 
 Custom models in python. 
+
+https://github.com/hastic/hastic-server
 
 ## Monitoring Serverless Things - Mandy Waite, Google
 
@@ -100,11 +101,11 @@ New world: fast growing, fast changing environment, massive alert volumes.
 
 What happens on network edge is now more important, and the edge is far away.
 
-single faults no longer cause impacts: fault tolerance does not mean zero incidents.
+Single faults no longer cause impacts: fault tolerance does not mean zero incidents.
 
 So how do we fix monitoring?
 
-Existing monitoring is incident driven. Assumption that faults are easy to detech, and all failure conditions are knowable.
+Existing monitoring is incident driven. Assumption that faults are easy to detect, and all failure conditions are knowable.
 
 Dashboards are artefacts of a past failure. Internal health is irrelevant, user requests are what they care about. (Symptom based monitoring)
 
@@ -112,7 +113,7 @@ Observability: continuous stream, high cardinality, build into infra and apps, i
 
 Monitoring as it should be: everything passes over a message bus. Then add AI.
 
-AI in IT ops: brig interesting information to the attention of human operators - without having to define it beforehand.
+AI in IT ops: bring interesting information to the attention of human operators - without having to define it beforehand.
 
 Where to use AI in IT ops:
 
@@ -120,7 +121,7 @@ Where to use AI in IT ops:
 - Correlation: identify related events across domains, avoid duplication of effort and missed signals. 
 - Collaboration: intelligent teaming, root cause analysis, knowledge capture.
 
-Teching the machine. Inputs matter, choose the irght feature centors. Regression problems: continuous distribution. Classification vs clustering: set of dategories.
+Teaching the machine. Inputs matter, choose the right feature vectors. Regression problems: continuous distribution. Classification vs clustering: set of dategories.
 
 In Practise:
 
@@ -155,6 +156,6 @@ incremental decremental solution. how to remove influence of oldest values in sl
 Time series classification:
 
 A time series is stationary if it's ditribution does not change over time.
-level stationsary statistic: tests that a series is stationary around its mean
+level stationary statistic: tests that a series is stationary around its mean
 
-incremental decremental rolling window implementation: agebraic machinations
+incremental decremental rolling window implementation: algebraic machinations
